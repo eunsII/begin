@@ -10,5 +10,5 @@ package day03.ex;
 			원의 둘레 : 2 * 반지름 * 3.14
  */
 public class Ex02 {
-
+	
 }

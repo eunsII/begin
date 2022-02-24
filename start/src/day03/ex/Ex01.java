@@ -49,12 +49,25 @@ public class Ex01 {
 		int width = sc.nextInt();
 		
 		// 출력
-		System.out.println("입력된 정수 가로 : " + width);
+		System.out.println("가로 : " + width);
 		
 		// 메세지 출력
 		System.out.print("세로 : ");
 		int sero = sc.nextInt();
 		
-		System.out.println("입력된 세로 : " + sero);
+		System.out.println("세로 : " + sero);
+		
+		// 사각형 넓이
+		int sagak = width * sero;
+		
+		// 사각형 넓이 출력
+		System.out.println("사각형 넓이 : " + sagak);
+		
+		// 삼각형 넓이
+		double samgak = width * sero / 2.0;
+		
+		// 삼각형 넓이 출력
+		
+		System.out.println("삼각형 넓이 : " + samgak);
 	}
 }
