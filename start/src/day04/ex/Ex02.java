@@ -45,6 +45,10 @@ public class Ex02 {
 		System.out.print("문자 입력 : ");
 		// 입력받아 문자열 저장하고
 		String str = sc.nextLine();
+		
+		// 자원반환하고
+		sc.close();
+		
 		// 문자열에서 문자 추출하고
 		char ch = str.charAt(0);
 		
