@@ -26,7 +26,41 @@ package day04.ex;
 	 			"abcd" 에서 두번째 문자를 추출하려면
 	 			
 	 			"abcd".charAt(1) ==> 'b'
+	 			
+	 	'J' -> 'j'
+	 	==> 
+	 	(char)('J' + ('a' - 'A'))
  */
-public class Ex02 {
 
+
+import java.util.*;
+
+public class Ex02 {
+	
+	public static void main(String[] args) {
+		// 할일
+		// 입력도구 준비하고
+		Scanner sc = new Scanner(System.in);
+		// 메세지 출력하고
+		System.out.print("문자 입력 : ");
+		// 입력받아 문자열 저장하고
+		String str = sc.nextLine();
+		// 문자열에서 문자 추출하고
+		char ch = str.charAt(0);
+		
+		// 판별하고 (판별결과는 변수에 담아서 처리하자)
+		char result = (ch < 'A') ? (ch) :(
+					(ch <= 'Z') ? ((char)(ch + ('a' - 'A'))) : 
+							(ch < 'a') ? (ch) : (
+									(ch <= 'z') ? (char)(ch - ('a' - 'A')) : ch
+									)
+				);
+		
+		/*
+			특수문자 - A - Z - 특수문자 - a ~ z - 특수문자
+		 */
+		// 결과 출력하고
+		System.out.println("입력한 문자 : " + ch);
+		System.out.println("변환된 문자 : " + result);
+	}
 }
