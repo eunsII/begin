@@ -14,7 +14,6 @@ package day05.solv;
 		...
 		6 x 9 = 54		7 x 9 = 63		8 x 9 = 72 		9 x 9 = 81
 		
-		
  */
 public class Ex15 {
 

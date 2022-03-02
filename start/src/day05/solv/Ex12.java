@@ -11,6 +11,15 @@ package day05.solv;
 				두번째 자리수와 마지막에서 두번째 자리수
 				...
 				가 동일한 수를 말한다.
+				
+				
+			abcde
+			이 숫자가 회수문가 되려면
+			a == e
+			b == d
+			
+			
+		
  */
 public class Ex12 {
 
