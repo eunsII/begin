@@ -36,7 +36,9 @@ public class Test02 {
 					i--;
 					// 다음회차를 진행한다.
 					continue loop;
+//					continue;
 				}
+				
 			}
 			
 			// 4. 배열에 채워넣는다.
