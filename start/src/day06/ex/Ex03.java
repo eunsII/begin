@@ -2,12 +2,14 @@ package day06.ex;
 
 /*
 	문제 3 ]
+중첩된  for 명령으로 처리하세요.
 		
 1 1 1 1 1
 2 2 2 2 2
 3 3 3 3 3
 4 4 4 4 4
 5 5 5 5 5
+
 
 1 2 3 4 5
 1 2 3 4 5
@@ -44,8 +46,9 @@ package day06.ex;
 public class Ex03 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		for(int i = 1; i < 6 ; i++ ) {
+			System.out.println(i + " " + i + " " + i + " " + i + " " + i );
+		}
 	}
 
 }
