@@ -26,7 +26,6 @@ public class Test08 {
 					continue loop;
 				}
 			}
-			
 			// 이 행을 실행하는 경우는 중복검사에 통과한 경우
 			num[i] = no;
 		}
