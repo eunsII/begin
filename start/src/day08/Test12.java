@@ -33,7 +33,40 @@ public class Test12 {
 		 */
 		for(int i = 0 ; i < 100 ; i++ ) {
 			char ch = (char)(Math.random() * ('J' - 'A' + 1) + 'A');
-			
+			/*
+			switch(ch) {
+			case 'A':
+				munja[0][1] += 1;
+				break;
+			case 'B':
+				munja[1][1] += 1;
+				break;
+			case 'C':
+				munja[2][1] += 1;
+				break;
+			case 'D':
+				munja[3][1] += 1;
+				break;
+			case 'E':
+				munja[4][1] += 1;
+				break;
+			case 'F':
+				munja[5][1] += 1;
+				break;
+			case 'G':
+				munja[6][1] += 1;
+				break;
+			case 'H':
+				munja[7][1] += 1;
+				break;
+			case 'I':
+				munja[8][1] += 1;
+				break;
+			case 'J':
+				munja[9][1] += 1;
+				break;
+			}
+			*/
 			int idx = ch - 'A';
 			/*
 			int oldCount = munja[idx][1];
@@ -45,6 +78,16 @@ public class Test12 {
 		}
 		
 		// print
+		for(int i = 0 ; i < munja.length ; i++ ) {
+			// 타이틀 출력
+			System.out.print((char)munja[i][0] + " : ");
+			
+			for(int j = 0 ; j < munja[i][1] ; j++ ) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		/*
 		for(int i = 0 ; i < munja.length ; i++ ) {
 			
 			int[] arr = munja[i];
@@ -60,5 +103,6 @@ public class Test12 {
 			}
 			System.out.println();
 		}
+		*/
 	}
 }
