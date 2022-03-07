@@ -44,6 +44,7 @@ public class Test05 {
 	public void toPrint(int no1, int no2, int result) {
 		System.out.println("두 수 " + no1 + " 과 " + no2 + " 의 합은 " +  result + " 입니다.");
 	}
+	
 	public void toPrint(int no1, int no2) {
 		System.out.println("두 수 " + no1 + " 과 " + no2 + " 의 합은 " +  add(no1, no2) + " 입니다.");
 		/*

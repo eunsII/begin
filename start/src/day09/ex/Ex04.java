@@ -12,6 +12,8 @@ package day09.ex;
 		
  */
 public class Ex04 {
+	
+	
 	public Ex04() {
 		int[] score = new int[10];
 	}

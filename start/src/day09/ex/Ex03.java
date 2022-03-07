@@ -10,9 +10,18 @@ package day09.ex;
 		
  */
 public class Ex03 {
-
+	int garo;
+	
+	public Ex03() {
+		setGaro();
+		System.out.println(garo);
+	}
+	
 	public static void main(String[] args) {
 		new Ex03();
 	}
-
+	
+	public void setGaro() {
+		garo  = (int)(Math.random()*45 + 1);
+	}
 }
