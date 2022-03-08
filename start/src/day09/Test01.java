@@ -1,7 +1,8 @@
 package day09;
 
 public class Test01 {
-	int no = 10;
+	private int no = 10;
+	int num = 1000;
 	
 	// abc라는 이름의 함수
 	static void abc(int no) {
@@ -26,4 +27,6 @@ public class Test01 {
 		String result = str + no;
 		return result;
 	}
+	
 }
+
