@@ -40,6 +40,25 @@ public class Test02 {
 		// 지수 객체
 		Friend f4 = new Friend();
 		
+		
+		// 4 멤버를 하나의 변수로 관리해보자.
+		Friend[] black = new Friend[4];
+		// 이렇게 하면 Friend 타입의 데이터를 기억할 공간 4개를 확보항태이다.
+		// 아직 각 공간에는 아무런 데이터가 들어있지 않다.
+		
+		Friend tmp1 = black[0];
+		
+//		System.out.println("name : " + tmp1.getName());
+		/*
+			아직 Friend 의 객체가 배열의 각 방에 채워지지 않았다.
+			따라서 멤버함수를 호출할 수 없다.
+		 */
+		
+		// 위에서 만들 Friend 객체를 순서대로 배열에 채워준다.
+		black[0] = f1;
+		black[1] = f2;
+		black[2] = f3;
+		black[3] = f4;
 	}
 	public static void main(String[] args) {
 		new Test02();
