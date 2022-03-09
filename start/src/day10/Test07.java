@@ -22,7 +22,7 @@ public class Test07 {
 		for(int i = 0 ; i < 5 ; i++ ) {
 			int width = (int)(Math.random()*21 + 5);
 			int height = (int)(Math.random()*21 + 5);
-			sam[i] = new Semo01(width, height);
+			sam[i] = new Semo01(height, width);
 		}
 	}
 	
