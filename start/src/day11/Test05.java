@@ -3,6 +3,7 @@ package day11;
 public class Test05 {
 	
 	public Test05() {
+		
 		Grand g1 = new Grand();
 		
 		Grand g2 = new Father();
@@ -18,6 +19,10 @@ public class Test05 {
 		System.out.println("g3.no : " + g3.no);
 		
 		((Father) g2).xyz();
+		
+		// instanceof 연산자
+		System.out.println(g3 instanceof Son);
+		System.out.println((Father)g2 instanceof Grand);
 	}
 	
 	public static void main(String[] args) {
