@@ -24,9 +24,14 @@ public class Study01 {
 		figPrint();
 	}
 	
-	
-	
-	
+	public int getLen() {
+		return len;
+	}
+
+	public void setLen(int len) {
+		this.len = len;
+	}
+
 	// fig 배열의 내용을 출력해주는 함수
 	public void figPrint() {
 		// 배열이므로 반복해서 출력해주면 되는데..
@@ -69,8 +74,14 @@ public class Study01 {
 	}
 	
 	public static void main(String[] args) {
-		new Study01();
+		Study01 s1 = new Study01();
 //		new Study01(5);
+		System.out.println();
+		System.out.println();
+		System.out.println("========================================================");
+		s1.setLen(20);
+		s1.setFig();
+		s1.figPrint();
 	}
 
 }
