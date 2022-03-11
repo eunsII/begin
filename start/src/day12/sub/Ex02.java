@@ -11,6 +11,8 @@ package day12.sub;
 	
 	단, 인터페이스의 구현은 무명 내부 클래스로 한다.
 */
+
+// 무명 내부 클래스로 처리하는 방법
 public class Ex02 {
 	Figure[] f;
 	public Ex02() {
