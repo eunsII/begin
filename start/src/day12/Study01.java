@@ -11,11 +11,20 @@ package day12;
  */
 public class Study01 {
 	private Figure[] fig;
+	private int len;
+	
 	public Study01() {
+		this(10);
+	}
+	
+	public Study01(int len) {
+		this.len = len;
 		setFig();
 		
 		figPrint();
 	}
+	
+	
 	
 	
 	// fig 배열의 내용을 출력해주는 함수
@@ -30,10 +39,10 @@ public class Study01 {
 	
 	// 배열변수 초기화 시켜주는 함수
 	public void setFig() {
-		fig = new Figure[10];
+		fig = new Figure[len];
 		
 		// 각방에 도형을 채워넣어보자.
-		for(int i = 0 ; i < 10 ; i++ ) {
+		for(int i = 0 ; i < len ; i++ ) {
 			// 채울 도형을 결정한다.
 			int no = getRndNo();
 			
@@ -61,6 +70,7 @@ public class Study01 {
 	
 	public static void main(String[] args) {
 		new Study01();
+//		new Study01(5);
 	}
 
 }
