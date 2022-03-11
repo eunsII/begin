@@ -22,7 +22,6 @@ public class MyWin {
 		btn1 = new JButton("닫기");
 		btn2 = new JButton("변경");
 		
-		/*
 		ActionListener act = new ActionListener() {
 			// 이 클래스는 무명 내부클래스...
 			// 오버라이드하는 함수의 내용이 극도로 짧아서
@@ -33,13 +32,12 @@ public class MyWin {
 				System.exit(0);
 			}
 		};
-		*/
 		
-		ActionListener act = new MyEvt();
+		ActionListener act1 = new MyEvt();
 		
 		// 닫기 이벤트 추가
 		btn1.addActionListener(act);
-		btn2.addActionListener(act);
+		btn2.addActionListener(act1);
 	
 		bPan.add(btn1);
 		bPan.add(btn2);
@@ -59,7 +57,13 @@ public class MyWin {
 		// 전역 내부 클래스...
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.exit(0);
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			
+			Color c = new Color(red, green, blue);
+			
+			mainP.setBackground(c);
 		}
 	}
 }
