@@ -33,7 +33,7 @@ public class MyWin {
 			}
 		};
 		
-		ActionListener act1 = new MyEvt();
+		ActionListener act1 = new MyEvt(this);
 		
 		// 닫기 이벤트 추가
 		btn1.addActionListener(act);
@@ -52,7 +52,7 @@ public class MyWin {
 	public static void main(String[] args) {
 		new MyWin();
 	}
-	
+	/*
 	class MyEvt implements ActionListener {
 		// 전역 내부 클래스...
 		@Override
@@ -66,4 +66,5 @@ public class MyWin {
 			mainP.setBackground(c);
 		}
 	}
+	*/
 }
