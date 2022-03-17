@@ -81,7 +81,4 @@ public class Nemo {
 		return bool;
 	}
 	
-	/*
-		private final char[] value;
-	 */
 }
