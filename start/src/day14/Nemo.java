@@ -60,13 +60,28 @@ public class Nemo {
 		boolean bool = false;
 		
 		// 입력된 데이터를 원래형태로 강제형변환해준다.
-		Nemo nam = (Nemo) o;
+		Nemo nam = null;
+		
+		try {
+			nam = (Nemo) o;
+		} catch(Exception e) {
+			// 만약 입력된 객체가 Nemo로 강제형변환할 때 예외가 발생하면
+			// 이 작업 이후의 모든 작업들은 실행자체가 무의미해진다.
+			// 따라서 이 함수의 실행 결과는 "다르다"가 될 것이고
+			// 이 함수의 실행을 즉시 멈춰줘야 할 것이다.
+			return false;
+		}
+		
 		// 남의꺼 면적 꺼내오고
 		int myunjuk = nam.getArea();
 		
 		// 비교해서 결과 만들고
-		bool = area == myunjuk;
+		bool = this.area == myunjuk;
 		
 		return bool;
 	}
+	
+	/*
+		private final char[] value;
+	 */
 }
