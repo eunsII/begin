@@ -3,6 +3,7 @@ package day15;
 public class Won {
 	private int rad;
 	private double arround, area;
+	
 	public Won() {
 	}
 	public Won(int rad) {
