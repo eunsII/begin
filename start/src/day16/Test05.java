@@ -40,6 +40,24 @@ public class Test05 {
 		for(Object key : keys1) {
 			System.out.println(key + " : " + map.get(key));
 		}
+		System.out.println("********************************************");
+		// Map.Entry 로 꺼내서 처리하는 방법
+		Set set = map1.entrySet();
+		
+		// 추가된 데이터 갯수만큼 Map.Entry를 만들어서 Set에 추가해서 반환해준다.
+		Iterator itor = set.iterator(); // Set을 순차적으로 꺼낼 목적으로 Iterator로 변환시켜놓았다.
+		while(itor.hasNext()) {
+			Object obj = itor.next();
+			Object key = ((Map.Entry) obj).getKey();
+			Object value = ((Map.Entry) obj).getValue();
+			
+			String name = (String) key;
+			int age = (int) value;
+			
+			// 출력
+			System.out.println(name + " : " + age);
+		}
+		
 	}
 
 	public static void main(String[] args) {
