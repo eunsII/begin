@@ -18,7 +18,7 @@ public class Test04 {
 			br = new BufferedReader(fr);
 			
 			// 읽은 데이터 기억할 배열 만들고
-			char[] buff = new char[1024];
+//			char[] buff = new char[1024];
 			// 몇번 읽어야 할지 모르므로
 			while(true) {
 				String line = br.readLine(); //  줄단위로 한행씩 읽는 함수. 주의 ] 줄바꿈기호는 읽지않는다.
