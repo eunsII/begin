@@ -25,7 +25,7 @@ public class Test07 {
 			// 1. 한글자만 읽어보자.
 			ch = System.in.read();
 			// 출력
-			System.out.println("입력한 문자 : " + (char)ch);
+			System.out.println("입력한 문자 : " + (char) ch);
 			
 			// 2. 문장을 입력해서 읽어보자.
 			// 여러문자를 기억할 변수를 준비한다.
