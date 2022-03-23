@@ -5,7 +5,8 @@ import java.io.*;
 	Test06  에서 저장한 jennie.txt  파일을 읽어보자.
 	
 	ObjectOutputStream 으로 저장한(내보낸) 파일은
-	반드시 ObjectInputStream으로 읽어야 한다. 
+	반드시 ObjectInputStream으로 읽어야 한다.
+	그리고 보내는 쪽과 받는 쪽에 모두 동일한 클래스가 있어야 한다.
  */
 public class Test07 {
 
