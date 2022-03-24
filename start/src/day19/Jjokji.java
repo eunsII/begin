@@ -55,6 +55,7 @@ public class Jjokji {
 		sendB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
+				frame.setVisible(false);
 				new MsgWrite(j);
 			}
 		});

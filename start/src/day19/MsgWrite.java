@@ -36,6 +36,7 @@ public class MsgWrite {
 		closeB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
+				main.frame.setVisible(true);
 				frame.dispose(); // 현재 창만 닫아야 한다.
 			}
 		});
