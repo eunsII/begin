@@ -10,7 +10,7 @@ public class MsgWrite {
 	Jjokji main;
 	
 	JFrame frame;
-	JTextField field;
+	JTextField field; // 이름을 기록할 필드
 	JTextArea area;
 	JButton sendB, resetB, closeB;
 	
@@ -32,6 +32,11 @@ public class MsgWrite {
 		bPan.add(sendB);
 		bPan.add(resetB);
 		bPan.add(closeB);
+		
+		// 버튼 이벤트
+		WriteEvt evt = new WriteEvt(this);
+		sendB.addActionListener(evt);
+		resetB.addActionListener(evt);
 		
 		closeB.addActionListener(new ActionListener() {
 			@Override

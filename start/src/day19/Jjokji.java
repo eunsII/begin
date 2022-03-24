@@ -55,8 +55,10 @@ public class Jjokji {
 		sendB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
+				String name = (String) list.getSelectedValue();
 				frame.setVisible(false);
-				new MsgWrite(j);
+				MsgWrite msg = new MsgWrite(j);
+				msg.field.setText(name);
 			}
 		});
 		
@@ -66,6 +68,41 @@ public class Jjokji {
 		frame.setSize(400, 400);
 		frame.setVisible(true);
 		frame.setResizable(false);
+		
+		/*
+			이제 프로그램이 사작되었으므로
+			네트워크 구성을 할 차례이다.
+			여기서는 UDP 통신을 해야 하므로
+			DatagramSocket을 이용해서 네트워클 구성을 해야 한다.
+		 */
+		try {
+			sSocket = new DatagramSocket();
+			rSocket = new DatagramSocket(7777);
+			/*
+				이렇게 하면 누군가에 접속한 것이 아니고
+				네트워크 회선에만 접속한 상태가 된다.
+				==> 통신이 가능하도록만 해주는 것이다.
+			 */
+			
+			// 이제 네트워크 구성이 완료되었으므로
+			// 쪽지를 보내고 받을 수 있다.
+			// 받는 프로그램을 시작하자.
+			// 받는 프로그램은 다른 프로그램들과 병행해서 처리가 되어야 하므로 스레드로 구성한다.
+			
+		} catch(Exception e) {
+			// 위작업이 예외가 발생한 것은 이 프로그램이 더이상 제 기능을 할 수 없는 상태이므로
+			// 열려있는 소켓을 모두 닫아준다.
+			close();
+			e.printStackTrace();
+		}
+	}
+	
+	// 자원 반환해주는 함수
+	public void close() {
+		try {
+			sSocket.close();
+			rSocket.close();
+		} catch(Exception e) {}
 	}
 	
 	// 맵을 파일의 내용으로 셋팅해주는 함수
