@@ -89,6 +89,11 @@ public class Jjokji {
 			// 받는 프로그램을 시작하자.
 			// 받는 프로그램은 다른 프로그램들과 병행해서 처리가 되어야 하므로 스레드로 구성한다.
 			
+			ReceiveThread t = new ReceiveThread(this); // New Born 상태
+			
+			// Runnable 상태로 전위
+			t.start();
+			
 		} catch(Exception e) {
 			// 위작업이 예외가 발생한 것은 이 프로그램이 더이상 제 기능을 할 수 없는 상태이므로
 			// 열려있는 소켓을 모두 닫아준다.

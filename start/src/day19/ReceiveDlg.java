@@ -13,6 +13,7 @@ public class ReceiveDlg {
 	
 	public ReceiveDlg(Jjokji main) {
 		this.main = main;
+		setGui();
 	}
 	
 	public void setGui() {
@@ -25,6 +26,12 @@ public class ReceiveDlg {
 		reB = new JButton("답장");
 		closeB = new JButton("닫기");
 		
+		JPanel bPan = new JPanel(new GridLayout(1,2));
+		bPan.add(reB);
+		bPan.add(closeB);
+		
+		reB.addActionListener(new BtnEvt());
+		
 		closeB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -32,5 +39,26 @@ public class ReceiveDlg {
 				main.frame.setVisible(true);
 			}
 		});
+		
+		frame.add(field, BorderLayout.NORTH);
+		frame.add(sp, BorderLayout.CENTER);
+		frame.add(bPan, BorderLayout.SOUTH);
+		
+		frame.setSize(400, 300);
+		frame.setVisible(true);
+		frame.setResizable(false);
+	}
+	
+	class BtnEvt implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// 이름 알아내고
+			String name = field.getText();
+			
+			MsgWrite wr = new MsgWrite(main);
+			wr.field.setText(name);
+			frame.dispose();
+		}
 	}
 }
