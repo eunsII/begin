@@ -44,7 +44,7 @@ public class PingClient01 {
 			
 			// 메세지를 보내면 서버가 응답 메세지를 보내준다. 
 			// 응답 메세지를 받아서 출력해보자.
-			buff = new byte[1024];
+			buff = new byte[10240];
 			int len = in.read(buff);
 			// 문자열로 변환
 			msg = new String(buff, 0, len);
