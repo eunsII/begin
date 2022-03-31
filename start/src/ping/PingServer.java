@@ -3,14 +3,16 @@ package ping;
 import java.util.*;
 
 public class PingServer {
+	private boolean bool = true;
 	private PingThread ping;
 	private Scanner sc;
-	private boolean bool = true;
 	public PingServer() {
 		ping = new PingThread();
 		
 		sc = new Scanner(System.in);
-		while(bool) {
+		
+		loop:
+		while(true) {
 			// 메세지 출력
 			System.out.println();
 			System.out.println("*** 핑서버프로그램 ***\n서버시작 : start\n서버중단 : quit\n명령을 입력하세요.");
@@ -18,8 +20,9 @@ public class PingServer {
 			
 			switch(str) {
 			case "start":
-				if(ping.isStart()) {
+				if(bool) {
 					ping.start();
+					bool = false;
 					try {
 						Thread.sleep(200);
 					} catch(Exception e) {}
@@ -28,12 +31,11 @@ public class PingServer {
 				System.out.println("\n*** 이미 서버가 실행중입니다! ***");
 				break;
 			case "quit":
-				bool = false;
 				ping.setStart(false);
 				try {
 					ping.allClose();
 				} catch (Exception e) {}
-				break;
+				break loop;
 			}
 		}
 	}
