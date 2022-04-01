@@ -81,6 +81,7 @@ public class PingThread extends Thread {
 			}catch(Exception e) {
 				e.printStackTrace();
 			} finally {
+				// 자원반환
 				close(out);
 				close(in);
 				close(socket);
