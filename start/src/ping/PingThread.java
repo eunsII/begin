@@ -47,7 +47,6 @@ public class PingThread extends Thread {
 			server = new ServerSocket(7777);
 			System.out.println("### server start ###");
 			doResponse();
-		} catch(SocketException e) {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -60,23 +59,32 @@ public class PingThread extends Thread {
 	}
 	
 	// 클라이언트가 접속하면 메세지 받아서 응답해주는 함수
-	public void doResponse() throws SocketException, Exception {
+	public void doResponse() {
 		while(isStart) {
-			socket = server.accept();
-			
-			String ip = socket.getInetAddress().getHostAddress();
-			System.out.println("\n" + ip + " - connected!");
-			
-			in = socket.getInputStream();
-			out = socket.getOutputStream();
-			
-			byte[] buff = new byte[10240];
-			int len = in.read(buff);
-			String msg = new String(buff, 0, len);
-			System.out.println(ip + " : " + msg);
-			
-			buff = new String("re ] " + msg).getBytes();
-			out.write(buff);
+			try {
+				socket = server.accept();
+				
+				String ip = socket.getInetAddress().getHostAddress();
+				System.out.println("\n" + ip + " - connected!");
+				
+				in = socket.getInputStream();
+				out = socket.getOutputStream();
+				
+				byte[] buff = new byte[10240];
+				int len = in.read(buff);
+				String msg = new String(buff, 0, len);
+				System.out.println(ip + " : " + msg);
+				
+				buff = new String("re ] " + msg).getBytes();
+				out.write(buff);
+			} catch(SocketException e) {
+			}catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(out);
+				close(in);
+				close(socket);
+			}
 		}
 	}
 	
