@@ -78,7 +78,7 @@ public class PingThread extends Thread {
 				buff = new String("re ] " + msg).getBytes();
 				out.write(buff);
 			} catch(SocketException e) {
-			}catch(Exception e) {
+			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
 				// 자원반환
