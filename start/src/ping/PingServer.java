@@ -14,7 +14,7 @@ public class PingServer {
 		while(true) {
 			// 메세지 출력
 			System.out.println();
-			System.out.println("*** 핑서버프로그램 ***\n서버시작 : start\n서버중단 : quit\n명령을 입력하세요.");
+			ping.execMsg();
 			String str = sc.nextLine();
 			
 			switch(str) {
@@ -34,6 +34,14 @@ public class PingServer {
 				break loop;
 			}
 		}
+
+		System.out.println();
+		System.out.println("◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼");
+		if(ping.getServer() != null) {
+			System.out.println("***** Server Stop *****");
+		}
+		System.out.println("**** Program  Exit ****");
+		System.out.println("◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼");
 	}
 
 	public static void main(String[] args) {
