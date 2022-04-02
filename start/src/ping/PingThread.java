@@ -70,7 +70,6 @@ public class PingThread extends Thread {
 				close(socket);
 			}
 		}
-		
 	}
 	
 	// 사용하지 않는 자원 반환해주는 함수
