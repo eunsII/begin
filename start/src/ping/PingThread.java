@@ -56,7 +56,7 @@ public class PingThread extends Thread {
 				int len = in.read(buff);
 				String msg = new String(buff, 0, len);
 				
-				System.out.println();
+				System.out.println("︎****************\n◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎");
 				System.out.println();
 				System.out.println("-----------------------------------------------------------------------");
 				System.out.println(ip + " - connected!");
@@ -86,11 +86,12 @@ public class PingThread extends Thread {
 		System.out.println("-----------------------");
 		if(!this.isAlive()) {
 			System.out.println("서버시작 : start");
+			System.out.println("프로그램 종료 : quit");
 		} else {
 			System.out.println("서버중단 : quit");
 		}
 		System.out.println("명령을 입력하세요.");
-		System.out.println("◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎");
+		System.out.println("=======================");
 		System.out.print("입력 : ");
 	}
 	// 사용하지 않는 자원 반환해주는 함수

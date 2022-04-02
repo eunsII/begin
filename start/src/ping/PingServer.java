@@ -16,6 +16,7 @@ public class PingServer {
 			System.out.println();
 			ping.execMsg();
 			String str = sc.nextLine();
+			System.out.println("◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎◻︎");
 			
 			switch(str) {
 			case "start":
