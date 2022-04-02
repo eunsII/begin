@@ -3,13 +3,12 @@ package ping;
 import java.util.*;
 
 public class PingServer {
-	private boolean bool = true;
 	private PingThread ping;
 	private Scanner sc;
+	
 	public PingServer() {
-		ping = new PingThread();
-		
 		sc = new Scanner(System.in);
+		ping = new PingThread();
 		
 		loop:
 		while(true) {
@@ -20,9 +19,8 @@ public class PingServer {
 			
 			switch(str) {
 			case "start":
-				if(bool) {
+				if(!ping.isAlive()) {
 					ping.start();
-					bool = false;
 					try {
 						Thread.sleep(200);
 					} catch(Exception e) {}
@@ -32,9 +30,7 @@ public class PingServer {
 				break;
 			case "quit":
 				ping.setStart(false);
-				try {
-					ping.allClose();
-				} catch (Exception e) {}
+				ping.close(ping.getServer());
 				break loop;
 			}
 		}
