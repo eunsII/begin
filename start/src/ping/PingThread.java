@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class PingThread extends Thread {
 	private boolean isStart = true;
 	private ServerSocket server;
-	private byte[] buff = new byte[10240];
 	
 	public boolean isStart() {
 		return isStart;
@@ -53,7 +52,7 @@ public class PingThread extends Thread {
 				String ip = socket.getInetAddress().getHostAddress();
 				System.out.println("\n" + ip + " - connected!");
 				
-				Arrays.fill(buff, (byte) 0);
+				byte[] buff = new byte[10240];
 				in = socket.getInputStream();
 				out = socket.getOutputStream();
 				
@@ -67,7 +66,6 @@ public class PingThread extends Thread {
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
-				Arrays.fill(buff, (byte) 0);
 				close(out);
 				close(in);
 				close(socket);
