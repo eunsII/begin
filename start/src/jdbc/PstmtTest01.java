@@ -84,8 +84,8 @@ public class PstmtTest01 {
 				// 이때 내린결과 꺼내올 데이터가 있으면 true 를 반환해준다. 없으면 false...
 				
 				// 각 사원의 데이터를 꺼내고
-				int eno = rs.getInt("eno");
-				String name = rs.getString("ename");
+				int eno = rs.getInt(1);
+				String name = rs.getString(2);
 				String job = rs.getString("job");
 				int mgr = rs.getInt("mgr");
 				String hdate = rs.getString("hdate");
