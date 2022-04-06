@@ -149,4 +149,7 @@ PreparedStatement
 		매번 다른 질의명령을 처리할 수 있다.
 		PreparedStatement 속도는 빠르지만
 		항상 동일한 질의명령만 처리할 수 있다.
-			
+
+		
+		
+		
