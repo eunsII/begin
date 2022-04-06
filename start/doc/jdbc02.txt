@@ -152,4 +152,43 @@ PreparedStatement
 
 		
 		
+	dno 라는 문자열을 입력받으면 
+		부서번호를 입력받아서 해당 부서의 부서원들의 
+			사원번호, 사원이름, 직급, 입사일, 급여, 부서번호, 부서이름, 부서위치
+		출력해주고
+
+SELECT
+	empno, ename, job, hiredate, sal, e.deptno, dname, loc
+FROM
+	emp e, dept d
+WHERE
+	e.deptno = d.deptno
+	AND e.deptno = ?
+
+
+
+
 		
+	job 이라는 문자열을 입력받으면
+		해당 직급을 가진 사원들의
+			사원번호, 사원이름, 직급, 입사일, 급여, 급여등급, 커미션
+		을 조회하도록 하고
+
+SELECT
+	empno, ename, job, hiredate, sal, grade, NVL(TO_CHAR(comm), '커미션없음') comm
+FROM
+	emp, salgrade
+WHERE
+	sal BETWEEN losal AND hisal
+	AND job = ?
+
+
+
+	all 을 입력받으면 모든 사원들의
+			사원번호, 사원이름, 직급, 입사일
+		을 조회하는 프로그램을 작성하세요.
+		
+SELECT
+	empno, ename, job, hiredate
+FROM
+	emp
