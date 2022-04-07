@@ -5,6 +5,8 @@ import java.util.Date;
 import java.sql.*;
 import java.text.*;
 
+import jdbc.sql.*;
+
 /*
 	emp 테이블의 데이터를 조회하는데
 	
@@ -41,10 +43,15 @@ public class JdbcTest01 {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
+	EmpSQL eSQL;
+//	EmpSQL eSQL = new EmpSQL();
+	
 	public JdbcTest01() {
 		// 드라이버 로딩
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			eSQL = new EmpSQL();
 			
 			getInput();
 		} catch(Exception e) {
@@ -113,12 +120,12 @@ public class JdbcTest01 {
 		// 입력받을 준비
 		Scanner sc = new Scanner(System.in);
 		// 메세지 출력하고
-		System.out.print("부서번호로 조회 : dno\n직급으로 조회 : job\n모든사원조회 : all\n명령 입력 : ");
+		System.out.print("부서번호로 조회 : dno\n직급으로 조회 : job\n모든사원조회 : all\n프로그램 종료 : exit\n명령 입력 : ");
 		String str = sc.nextLine();
 		
 		switch(str) {
 		case "dno":
-			getAll();
+			getDnoInfo(sc);
 			break;
 		case "job":
 			getAll();
@@ -126,6 +133,83 @@ public class JdbcTest01 {
 		case "all":
 			getAll();
 			break;
+		case "exit":
+			System.out.println("*** 프로그램을 종료합니다. ***");
+			break;
+		}
+	}
+	
+	// 부서번호를 입력받아서 해당부서의 사원들을 조회해주는 함수
+	public void getDnoInfo(Scanner sc) {
+		// 할일
+		// 메세지 출력하고
+		System.out.print("부서번호를 입력하세요! 이전단계는 -1 을 입력하세요.\n부서번호 : ");
+		int no = sc.nextInt();
+		
+		if(no == -1) {
+			// 이 경우는 이전단계로 이동하길 원하는 경우이므로 
+			// 이 함수의 실행을 즉시 종료한다.
+			return;
+		}
+		
+		// 이 경우는 부서번호를 입력받은 경우이므로
+		// 부서번호에 소속된 사원들의 정보를 조회하면 된다.
+		
+		try {
+			// 따라서 데이터베이스에 접속하고 <== Connection
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "scott";
+			String pw = "tiger";
+			con = DriverManager.getConnection(url, user, pw);
+			// 질의명령 가져오고
+			String sql = eSQL.getSQL(eSQL.SEL_DNOINFO);
+			// 명령전달도구 만들고
+			// 	<== 위에서 가져온 질의명령에는 ? 로 되어있는 부분을 데이터로 채워야하는
+			//		불완전한 질의명령이다. 
+			//		이때 사용하는 명령 전달 도구는 PreparedSatement 를 사용한다.
+			pstmt = con.prepareStatement(sql);
+			
+			// 질의명령을 완성하고
+			pstmt.setInt(1, no); 
+			/*
+				만약 질의 명령이
+					SELECT
+						empno, ename
+					FROM
+						emp
+					WHERE
+						SAL >= ?
+						AND deptno = ?
+				라고 가정하면
+				이 때 
+					SAL >= ? 	의 ? 의 위치값이 1이고
+					deptno = ? 	의 ? 위치값이 2 가 된다.
+					
+			 */
+			
+			// 질의명령 보내고 결과(ResultSet)받고
+			rs = pstmt.executeQuery();
+			// 꺼내서 출력하고
+			while(rs.next()) { // 레코드포인터 한줄 내리고..( EOF로 이동하면 false 를 반환해준다. )
+				// 데이터 추출하고
+				int eno = rs.getInt("empno");
+				String name = rs.getString("ename");
+				String job = rs.getString("job");
+				Date hdate = rs.getDate("hiredate");
+				Time htime = rs.getTime("hiredate");
+				int sal = rs.getInt("sal");
+				int dno = rs.getInt("deptno");
+				String dname = rs.getString("dname");
+				String loc = rs.getString("loc");
+				
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				
+			} catch(Exception e) {}
 		}
 	}
 	
@@ -139,7 +223,10 @@ public class JdbcTest01 {
 			String pw = "tiger";
 			con = DriverManager.getConnection(url, user, pw);
 			// 질의명령 준비하고
-			String sql = getSQL(SEL_ALL);
+//			EmpSQL eSQL = new EmpSQL(); // 먼저 객체로 만들고
+			String sql = eSQL.getSQL(eSQL.SEL_ALL); // 질의명령 가져오고...
+			
+//			String sql = getSQL(SEL_ALL);
 			// 명령전달 도구 준비
 			stmt = con.createStatement();
 			
