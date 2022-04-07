@@ -202,6 +202,15 @@ public class JdbcTest01 {
 				String dname = rs.getString("dname");
 				String loc = rs.getString("loc");
 				
+				SimpleDateFormat form1 = new SimpleDateFormat("YYYY년 MM월 dd일 ");
+				SimpleDateFormat form2 = new SimpleDateFormat("HH:mm:ss");
+				
+				String sdate = form1.format(hdate) + form2.format(htime);
+				
+				// 출력
+				System.out.printf("| %5d | %10s | %10s | %24s | %6d | %2d | %10s | %8s |\n", 
+											eno, name, job, sdate, sal, dno, dname, loc);
+				
 			}
 			
 		} catch(Exception e) {
