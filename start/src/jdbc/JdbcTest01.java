@@ -142,7 +142,36 @@ public class JdbcTest01 {
 	}
 	
 	// 사원들의 모든 직급을 조회해서 출력해주는 함수
-	
+	public void getJobList() {
+		// 할일
+		// 커넥션 준비하고
+		try{
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "scott";
+			String pw = "tiger";
+			con = DriverManager.getConnection(url, user, pw);
+			// 질의명령 꺼내오고
+			String sql = eSQL.getSQL(eSQL.SEL_JOBLIST);
+			// 명령 전달도구 준비하고
+			stmt = con.createStatement();
+			// 질의명령 보내고 결과받고
+			rs = stmt.executeQuery(sql);
+			// 꺼내서 출력하고
+			while(rs.next()) {
+				String job = rs.getString("job");
+				System.out.print("| " + job + " ");
+			}
+			System.out.println("|");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch(Exception e) {}
+		}
+	}
 	
 	// 직급을 입력받아서 해당 직급의 사원들의 정보를 조회해주는 함수
 	public void getJobInfo(Scanner sc) {
@@ -151,6 +180,9 @@ public class JdbcTest01 {
 			bonus ]
 				먼저 emp 테이블에 있는 직급을 모두 조회해서 출력하세요.
 		 */
+		
+		getJobList();
+		System.out.println();
 		
 		// 메세지 출력하고
 		System.out.print("조회할 직급을 입력하세요!\n이전단계는 quit 을 입력하세요!\n직급이름 : ");

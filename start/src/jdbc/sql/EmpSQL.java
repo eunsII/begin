@@ -10,6 +10,7 @@ public class EmpSQL {
 	public final int SEL_ALL 		= 1001;
 	public final int SEL_DNOINFO 	= 1002;
 	public final int SEL_JOBINFO 	= 1003;
+	public final int SEL_JOBLIST	= 1004;
 	
 	// 질의명령을 기억하고 있다가 요청하면 반환해주는 함수
 	public String getSQL(int code) {
@@ -49,6 +50,12 @@ public class EmpSQL {
 			buff.append("WHERE ");
 			buff.append("	sal BETWEEN losal AND hisal ");
 			buff.append("	AND job = ? ");
+			break;
+		case SEL_JOBLIST:
+			buff.append("SELECT ");
+			buff.append("	DISTINCT job ");
+			buff.append("FROM ");
+			buff.append("	emp ");
 			break;
 		}
 		
