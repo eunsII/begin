@@ -141,9 +141,17 @@ public class JdbcTest01 {
 		}
 	}
 	
+	// 사원들의 모든 직급을 조회해서 출력해주는 함수
+	
+	
 	// 직급을 입력받아서 해당 직급의 사원들의 정보를 조회해주는 함수
 	public void getJobInfo(Scanner sc) {
 		// 할일
+		/*
+			bonus ]
+				먼저 emp 테이블에 있는 직급을 모두 조회해서 출력하세요.
+		 */
+		
 		// 메세지 출력하고
 		System.out.print("조회할 직급을 입력하세요!\n이전단계는 quit 을 입력하세요!\n직급이름 : ");
 		// 직급 입력받고
