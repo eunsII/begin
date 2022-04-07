@@ -163,6 +163,7 @@ public class JdbcTest01 {
 			con = DriverManager.getConnection(url, user, pw);
 			// 질의명령 가져오고
 			String sql = eSQL.getSQL(eSQL.SEL_DNOINFO);
+			System.out.println("################ " + sql);
 			// 명령전달도구 만들고
 			// 	<== 위에서 가져온 질의명령에는 ? 로 되어있는 부분을 데이터로 채워야하는
 			//		불완전한 질의명령이다. 
