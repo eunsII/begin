@@ -271,7 +271,7 @@ public class JdbcTest01 {
 				// 	<== 위에서 가져온 질의명령에는 ? 로 되어있는 부분을 데이터로 채워야하는
 				//		불완전한 질의명령이다. 
 				//		이때 사용하는 명령 전달 도구는 PreparedSatement 를 사용한다.
-				pstmt = con.prepareStatement(sql);
+				pstmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 				
 				// 질의명령을 완성하고
 				pstmt.setInt(1, no); 
