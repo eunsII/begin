@@ -1,4 +1,4 @@
-package empPorj.sql;
+package empProj.sql;
 
 /*
 	사원들의 정보와 관련된 데이터베이스작업을 할 때 필요한

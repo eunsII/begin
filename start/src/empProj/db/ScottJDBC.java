@@ -1,4 +1,4 @@
-package empPorj.db;
+package empProj.db;
 
 import java.sql.*;
 
