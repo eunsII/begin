@@ -93,6 +93,45 @@ public class EmpDao {
 		// 반환값 변수
 		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
 		
+		// 커넥션 가져오고
+		con = db.getCON();
+		// 질의명령 가져오고
+		String sql = eSQL.getSQL(eSQL.SEL_DNOINFO);
+		
+		// 명령전달도구 준비하고
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// 질의명령 완성하고
+			pstmt.setInt(1, dno);
+			// 질의명령 보내고 결과 받고
+			rs = pstmt.executeQuery();
+			// 데이터 꺼내고
+			while(rs.next()) {
+				// 한명분 데이터 저장할 VO 만들고
+				EmpVO eVO = new EmpVO();
+				// 데이터 꺼내서 채우고
+				eVO.setEno(rs.getInt("empno"));
+				eVO.setEname(rs.getString("ename"));
+				eVO.setJob(rs.getString("job"));
+				eVO.setHdate(rs.getDate("hiredate"));
+				eVO.setHtime(rs.getTime("hiredate"));
+				eVO.setSdate();
+				eVO.setSal(rs.getInt("sal"));
+				eVO.setDno(rs.getInt("deptno"));
+				eVO.setDname(rs.getString("dname"));
+				eVO.setLoc(rs.getString("loc"));
+				
+				// 리스트에 VO 담고
+				list.add(eVO);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
 		
 		return list;
 	}
@@ -103,6 +142,44 @@ public class EmpDao {
 		// 반환값 변수
 		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
 		
+		// Connection
+		con = db.getCON();
+		// sql
+		String sql = eSQL.getSQL(eSQL.SEL_JOBINFO);
+		
+		// pstmt
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// 질의명령 완성하고
+			pstmt.setString(1, job);
+			// 질의명령 보내고 결과 받고
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				// VO 만들고
+				EmpVO evo = new EmpVO();
+				
+				// 데이터채우고
+				evo.setEno(rs.getInt("empno"));
+				evo.setEname(rs.getString("ename"));
+				evo.setJob(rs.getString("job"));
+				evo.setHdate(rs.getDate("hiredate"));
+				evo.setHtime(rs.getTime("hiredate"));
+				evo.setSdate();
+				evo.setSal(rs.getInt("sal"));
+				evo.setScomm(rs.getString("comm"));
+				
+				// 리스트에 채우고
+				list.add(evo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
 		
 		
 		

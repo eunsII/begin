@@ -31,7 +31,8 @@ public class ScottJDBC {
 		// 반환값 변수
 		Connection con = null;
 		// 필요한 정보 준비
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "scott";
 		String pw = "tiger";
 		

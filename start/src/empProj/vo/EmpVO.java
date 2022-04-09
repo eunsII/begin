@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmpVO {
-	private int eno, mgr, dno, sal, comm;
-	private String ename, job, sname, sdate, scomm;
+	private int eno, mgr, dno, sal, grade, comm;
+	private String ename, job, sname, dname, loc, sdate, scomm;
 	private Date hdate;
 	private Time htime;
 	public int getEno() {
@@ -32,6 +32,12 @@ public class EmpVO {
 	}
 	public void setSal(int sal) {
 		this.sal = sal;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 	public int getComm() {
 		return comm;
@@ -63,6 +69,18 @@ public class EmpVO {
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
+	public String getDname() {
+		return dname;
+	}
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+	public String getLoc() {
+		return loc;
+	}
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
 	public String getSdate() {
 		return sdate;
 	}
@@ -88,9 +106,8 @@ public class EmpVO {
 	}
 	@Override
 	public String toString() {
-		return "EmpVO [eno=" + eno + ", mgr=" + mgr + ", dno=" + dno + ", sal=" + sal + ", comm=" + comm + ", ename="
-				+ ename + ", job=" + job + ", sname=" + sname + ", sdate=" + sdate + ", scomm=" + scomm + ", hdate="
-				+ hdate + ", htime=" + htime + "]";
+		return "EmpVO [eno=" + eno + ", mgr=" + mgr + ", dno=" + dno + ", sal=" + sal + ", grade=" + grade + ", comm="
+				+ comm + ", ename=" + ename + ", job=" + job + ", sname=" + sname + ", dname=" + dname + ", loc=" + loc
+				+ ", sdate=" + sdate + ", scomm=" + scomm + "]";
 	}
-	
 }
