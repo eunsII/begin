@@ -66,7 +66,6 @@ public class EmpDao {
 				Time htime = rs.getTime("hiredate");
 				
 				// VO 에 채우고
-				
 				eVO.setEno(eno);
 				eVO.setEname(name);
 				eVO.setJob(job);
@@ -168,6 +167,7 @@ public class EmpDao {
 				evo.setHtime(rs.getTime("hiredate"));
 				evo.setSdate();
 				evo.setSal(rs.getInt("sal"));
+				evo.setGrade(rs.getInt("grade"));
 				evo.setScomm(rs.getString("comm"));
 				
 				// 리스트에 채우고
