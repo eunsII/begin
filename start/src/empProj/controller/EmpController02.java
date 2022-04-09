@@ -1,10 +1,8 @@
 package empProj.controller;
 
-import java.io.*;
 import java.util.*;
 
 import empProj.view.*;
-import empProj.vo.*;
 
 public class EmpController02 {
 	private EmpView view;
