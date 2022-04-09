@@ -87,6 +87,71 @@ public class EmpDao {
 		return list;
 	}
 	
+	// 부서번호 리스트 조회 전담 처리함수
+	public ArrayList<Integer> getDnoList(){
+		// 반환값 변수
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		// 커넥션
+		con = db.getCON();
+		// 질의명령
+		String sql = eSQL.getSQL(eSQL.SEL_DNOLIST);
+		// 명령전달도구
+		stmt = db.getSTMT(con);
+		// 질의명령 보내고 결과 받고
+		try {
+			rs = stmt.executeQuery(sql);
+			
+			// 꺼내서 리스트에 담고
+			while(rs.next()) {
+				list.add(rs.getInt("deptno"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		// 리스트 반환하고
+		return list;
+	}
+	
+	// 부서리스트 조회 전담 처리함수
+	public ArrayList<EmpVO> getDeptList(){
+		// 반환값 변수
+		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
+		// 커넥션
+		con = db.getCON();
+		// 질의명령
+		String sql = eSQL.getSQL(eSQL.SEL_DEPTLIST);
+		// 명령전달도구
+		stmt = db.getSTMT(con);
+		// 질의명령 보내고 결과 받고
+		try {
+			rs = stmt.executeQuery(sql);
+			
+			// 꺼내서 리스트에 담고
+			while(rs.next()) {
+				EmpVO eVO = new EmpVO();
+				eVO.setDno(rs.getInt("deptno"));
+				eVO.setDname(rs.getString("dname"));
+				
+				list.add(eVO);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		// 리스트 반환하고
+		return list;
+		
+	}
+	
 	// 부서번호를 입력받아서 부서원들의 정보를 반환해주는 함수
 	public ArrayList<EmpVO> getDnoInfo(int dno) {
 		// 반환값 변수
