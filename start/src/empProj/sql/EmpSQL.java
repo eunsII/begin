@@ -44,7 +44,7 @@ public class EmpSQL {
 			break;
 		case SEL_JOBINFO:
 			buff.append("SELECT ");
-			buff.append("	empno, ename, job, hiredate, sal, grade, NVL(TO_CHAR(comm), '커미션없음') comm ");
+			buff.append("	empno, ename, job, hiredate, sal, grade, NVL(TO_CHAR(comm), 'NONE') comm ");
 			buff.append("FROM ");
 			buff.append("	emp, salgrade ");
 			buff.append("WHERE ");

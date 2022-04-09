@@ -181,7 +181,33 @@ public class EmpDao {
 			db.close(con);
 		}
 		
+		return list;
+	}
+	
+	// 모든 직급 조회해서 반환해주는 함수
+	public ArrayList<String> getAllJob(){
+		ArrayList<String> list = new ArrayList<String>();
 		
+		// Connection
+		con = db.getCON();
+		// sql
+		String sql = eSQL.getSQL(eSQL.SEL_JOBLIST);
+		// stmt
+		stmt = db.getSTMT(con);
+		try {
+			// 명령전달하고 결과받고
+			rs = stmt.executeQuery(sql);
+			// 꺼내서 리스트에 담고
+			while(rs.next()) {
+				list.add(rs.getString("job"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
 		
 		return list;
 	}
