@@ -103,7 +103,7 @@ public class EmpDao {
 			
 			// 꺼내서 리스트에 담고
 			while(rs.next()) {
-				list.add(rs.getInt("deptno"));
+				list.add(rs.getInt("deptno")); // 자동 boxing
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
